@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\EditarPerfil;
 use App\Filament\Widgets\VisaoGeralClinica;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -32,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('images/logo-inttegrar.png'))
             ->brandLogoHeight(fn (): string => request()->routeIs('filament.admin.auth.login') ? '7.5rem' : '5rem')
             ->login()
+            ->profile(EditarPerfil::class)
             ->topNavigation()
             ->colors([
                 'primary' => Color::Amber,
